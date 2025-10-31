@@ -12,7 +12,7 @@ A Python script that connects to the Google Calendar API to find 3 open meeting 
 
 Clone this repository to your local machine:
 
-```
+```bash
 git clone <your-repo-url>
 cd <your-repo-name>
 ```
@@ -21,75 +21,80 @@ cd <your-repo-name>
 It's highly recommended to use a Python virtual environment to manage dependencies.
 
 Create the virtual environment
-```python3 -m venv env
+```bash
+python3 -m venv env
 ```
 
 Activate it (on macOS/Linux)
-```source env/bin/activate
+```bash
+source env/bin/activate
 ```
 
 Or activate it (on Windows)
-```.\env\Scripts\activate
+```bash
+.\env\Scripts\activate
 ```
 
 ### 3. Install Dependencies
 Install the required Python libraries using pip:
 
-```pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib python-dateutil pytz
+```bash
+pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib python-dateutil pytz
 ```
 
 ## Configuration: Google API Setup
 Before you can run the script, you must authorize it with Google and get a credentials.json file.
 
 ### 1. Prerequisites: Enable the API
-Go to the Google Cloud Console: console.cloud.google.com
+1. Go to the **Google Cloud Console:** <console.cloud.google.com>
 
-Create a new project (e.g., "Calendar Scheduler").
+2. Create a **new project** (e.g., "Calendar Scheduler").
 
-Enable the API:
+3. **Enable the API:**
 
-Go to "APIs & Services" > "Library".
+* Go to "APIs & Services" > "Library".
 
-Search for "Google Calendar API" and click it.
+* Search for "Google Calendar API" and click it.
 
-Click the Enable button.
+* Click the **Enable** button.
 
-Create Credentials:
+4. **Create Credentials:**
 
-Go to "APIs & Services" > "Credentials".
+* Go to "APIs & Services" > "Credentials".
 
-Click "+ Create Credentials" > "OAuth client ID".
+* Click "+ Create Credentials" > "**OAuth client ID**".
 
-Configure Consent Screen (if asked):
+* **Configure Consent Screen** (if asked):
 
-Choose "External".
+    * Choose "External".
 
-Fill in an "App name" (e.g., "My Scheduler"), your "User support email", and your "Developer contact" email.
+    * Fill in an "App name" (e.g., "My Scheduler"), your "User support email", and your "Developer contact" email.
 
-You can skip all other fields and save.
+    * You can skip all other fields and save.
 
-Create the OAuth ID:
+* **Create the OAuth ID:**
 
-For Application type, select Desktop app.
+* For **Application type**, select **Desktop app**.
 
-Give it any name.
+* Give it any name.
 
-Click Create.
+* Click **Create**.
 
-Download the File:
+5. **Download the File**:
 
-A window will pop up. Click DOWNLOAD JSON.
+* A window will pop up. Click **DOWNLOAD JSON**.
 
-Rename this downloaded file to credentials.json.
+* Rename this downloaded file to `credentials.json.
 
-Save it in the root folder of this project, right next to find_slots.py.
+* Save it in the root folder of this project, right next to `find_slots.py.
 
-IMPORTANT: The credentials.json file is a secret. Do not share it or commit it to GitHub.
+|**IMPORTANT:** The credentials.json file is a secret. Do not share it or commit it to GitHub.
 
-### 2. Add to .gitignore
+### 2. Add to `.gitignore
 To prevent accidentally leaking your credentials, create a .gitignore file in your project folder and add the following lines:
 
-```# Secret credentials
+```text
+# Secret credentials
 credentials.json
 token.json
 
@@ -104,29 +109,29 @@ If you run the script and immediately get this error:
 ValueError: Client secrets must be for a web or installed app.
 It means your credentials.json file is the wrong type. You likely created credentials for a "Web application" by mistake.
 
-How to Fix:
+### How to Fix:
 
-Delete Files: In your project folder, delete credentials.json (and token.json if it exists).
+1. **Delete Files:** In your project folder, delete credentials.json (and token.json if it exists).
 
-Go to Google Cloud Console: Open your project's Credentials page.
+2. **Go to Google Cloud Console:** Open your project's Credentials page.
 
-Create New Credentials:
+3. **Create New Credentials:**
 
-Click + CREATE CREDENTIALS > OAuth client ID.
+* Click + CREATE CREDENTIALS > OAuth client ID.
 
-Select the Correct Type:
+4. **Select the Correct Type:**
 
-For Application type, you must select Desktop app.
+* For Application type, you must select Desktop app.
 
-Download and Rerun:
+5. **Download and Rerun:**
 
-Click Create.
+* Click Create.
 
-Click DOWNLOAD JSON from the popup.
+* Click DOWNLOAD JSON from the popup.
 
-Rename the file to credentials.json and move it to your project folder.
+* Rename the file to credentials.json and move it to your project folder.
 
-Run the script again.
+* Run the script again.
 
 ## How to Run
 ### 1. Run the Script
@@ -151,7 +156,8 @@ The script will automatically create a token.json file in your folder. This file
 ### 3. Follow the Prompts
 The script will now run in your terminal. Answer the prompts to find a time:
 
-```Connecting to Google Calendar...
+```bash
+Connecting to Google Calendar...
 Using your defined working hours: 09:00 - 17:00, monday, tuesday, wednesday, thursday, friday
 
 --- Google Calendar Scheduler ---
