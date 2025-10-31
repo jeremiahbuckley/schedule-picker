@@ -46,7 +46,7 @@ pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib p
 Before you can run the script, you must authorize it with Google and get a credentials.json file.
 
 ### 1. Prerequisites: Enable the API
-1. Go to the **Google Cloud Console:** <console.cloud.google.com>
+1. Go to the **Google Cloud Console:** [console.cloud.google.com](https://console.cloud.google.com)
 
 2. Create a **new project** (e.g., "Calendar Scheduler").
 
@@ -88,7 +88,7 @@ Before you can run the script, you must authorize it with Google and get a crede
 
 * Save it in the root folder of this project, right next to `find_slots.py.
 
-|**IMPORTANT:** The credentials.json file is a secret. Do not share it or commit it to GitHub.
+> **IMPORTANT:** The credentials.json file is a secret. Do not share it or commit it to GitHub.
 
 ### 2. Add to `.gitignore
 To prevent accidentally leaking your credentials, create a .gitignore file in your project folder and add the following lines:
@@ -106,28 +106,31 @@ env/
 ## Troubleshooting: "Client secrets" Error
 If you run the script and immediately get this error:
 
+```
 ValueError: Client secrets must be for a web or installed app.
-It means your credentials.json file is the wrong type. You likely created credentials for a "Web application" by mistake.
+```
+
+It means your `credentials.json file is the wrong type. You likely created credentials for a "Web application" by mistake.
 
 ### How to Fix:
 
-1. **Delete Files:** In your project folder, delete credentials.json (and token.json if it exists).
+1. **Delete Files:** In your project folder, delete `credentials.json (and `token.json if it exists).
 
-2. **Go to Google Cloud Console:** Open your project's Credentials page.
+2. **Go to Google Cloud Console:** Open your project's [Credentials page](https://console.cloud.google.com/apis/credentials).
 
 3. **Create New Credentials:**
 
-* Click + CREATE CREDENTIALS > OAuth client ID.
+* Click **+ CREATE CREDENTIALS** > **OAuth client ID**.
 
 4. **Select the Correct Type:**
 
-* For Application type, you must select Desktop app.
+* For **Application type**, you **must** select **Desktop app**.
 
 5. **Download and Rerun:**
 
-* Click Create.
+* Click **Create**.
 
-* Click DOWNLOAD JSON from the popup.
+* Click **DOWNLOAD JSON** from the popup.
 
 * Rename the file to credentials.json and move it to your project folder.
 
@@ -137,7 +140,8 @@ It means your credentials.json file is the wrong type. You likely created creden
 ### 1. Run the Script
 Make sure your virtual environment is activated, then run the Python script:
 
-```python find_slots.py
+```bash
+python find_slots.py
 ```
 
 ### 2. First-Time Authentication
